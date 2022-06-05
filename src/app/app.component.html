@@ -21,7 +21,11 @@
         <div class="form-group">
           <label>Telephone</label>
           <input   type="tel" #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched" pattern="^\d{10}$" class="form-control " [(ngModel)]="userModel.phone" name="phoneNumber" required /> 
-          <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required and must be 10 digits</small>
+          <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+            <small class="text-danger" *ngIf="phone.errors?.['required']" > phone number is required </small>
+            <small class="text-danger" *ngIf="phone.errors?.['pattern']">phone number  must be 10 digits </small> <!-- Property 'pattern' comes from an index signature, so it must be accessed with ['pattern'].-->
+             <!--As a reminder, the '?' is to ensure that the errors object is not null.-->
+          </div>
         </div>
         
         <!-- <div ngModelGroup="address">
