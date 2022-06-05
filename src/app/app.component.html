@@ -21,6 +21,7 @@
         <div class="form-group">
           <label>Telephone</label>
           <input   type="tel" #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched" pattern="^\d{10}$" class="form-control " [(ngModel)]="userModel.phone" name="phoneNumber" required /> 
+          <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required and must be 10 digits</small>
         </div>
         
         <!-- <div ngModelGroup="address">
