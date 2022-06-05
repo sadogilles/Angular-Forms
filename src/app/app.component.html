@@ -10,7 +10,7 @@
         <div class="form-group">
           <label>Name</label>
           <input #nam="ngModel" [class.is-invalid]="nam.invalid && nam.touched" type="text" class="form-control" required name="name" [(ngModel)]="userModel.name">
-          
+          <small class="danger" [class.d-none]="nam.valid || nam.untouched" class="text-danger">Name is required </small>
         </div>
         <div class="form-group">
           <label>Email</label>

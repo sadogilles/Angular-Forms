@@ -12,5 +12,5 @@ export class AppComponent {
   topics = ['Angular','React', 'Vue'];
 
   userModel =  {name:'',email: 'rob@email.com',phone: 99888999,topic:"Angular",timePreference:'morning',subscribe:true};
-
+  
 }
