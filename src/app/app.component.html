@@ -7,6 +7,7 @@
        <p>form data -> {{userForm.value | json}}</p>
         <hr/>
         <p>class model -> {{userModel|json }}</p>
+        <p>form valid : {{userForm.form.valid}}</p>
         <div class="form-group">
           <label>Name</label>
           <input #nam="ngModel" [class.is-invalid]="nam.invalid && nam.touched" type="text" class="form-control" required name="name" [(ngModel)]="userModel.name">
@@ -68,6 +69,6 @@
         <label for="" class="form-check-label"> Send me promotional offers</label>
       </div>
   
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary" [disabled]="userForm.form.invalid || topHasError">Submit</button>
     </form>
   </div>
