@@ -8,13 +8,14 @@ const app=express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('',(req,res)=>{
+app.get('/',(req,res)=>{
     res.send('Hello from the server');
 });
 
-app.post('http://localhost:3000/enroll',(req,res)=>{
+app.post('/enroll',(req,res)=>{
     console.log(req.body);
-    res.status(200).send(" message: data received");
+    console.log('post request called');
+    res.status(200).send({"message":" message: data received"});
 });
 
 app.listen(PORT,()=>{console.log("server running on localhost:"+PORT)});

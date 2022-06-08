@@ -1,17 +1,27 @@
-import { Injectable } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 import {User} from './user';
-import{HttpClient} from '@angular/common/http';
+import{HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { throwError } from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnrollementService {
   
-  url ='';
+  url ='http://localhost:3000/enroll';
   constructor(private http:HttpClient) {
 
    }
+
    enroll(user:User){
-    return this.http.post<any>(this.url,user);
+     console.log('service called');
+    return this.http.post<any>(this.url,user).pipe(catchError(this.errorHandler));
+
+    
+   }
+
+   errorHandler(error:HttpErrorResponse){
+     return throwError(()=>error.message);
    }
 }

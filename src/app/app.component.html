@@ -3,7 +3,7 @@
         Bootcamp enrollment form
     </h1>
       
-      <form action="" #userForm="ngForm" (ngSubmit)="onSubmit()">
+      <form action="" #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
        <p>form data -> {{userForm.value | json}}</p>
         <hr/>
         <p>class model -> {{userModel|json }}</p>

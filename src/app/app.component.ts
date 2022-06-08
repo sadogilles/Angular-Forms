@@ -15,6 +15,7 @@ export class AppComponent {
   userModel =  {name:'',email: 'rob@email.com',phone: 99888999,topic:"default",timePreference:'morning',subscribe:true};
   
   topHasError=true;
+
   constructor(private  rService:EnrollementService){
     
   }
@@ -27,7 +28,6 @@ export class AppComponent {
   }
   onSubmit(){
     //console.log(this.userModel);
-    this.rService.enroll(this.userModel).subscribe(data=> console.log(data),err=>console.log(err)
-    )
+    return  this.rService.enroll(this.userModel).subscribe((data)=>console.log(data));
   }
 }
