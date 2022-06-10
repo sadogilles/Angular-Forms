@@ -2,8 +2,11 @@
     <h1>
         Bootcamp enrollment form
     </h1>
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
       
-      <form action="" #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+      <form action="" #userForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="!submitted" novalidate>
        <p>form data -> {{userForm.value | json}}</p>
         <hr/>
         <p>class model -> {{userModel|json }}</p>

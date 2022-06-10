@@ -15,7 +15,7 @@ app.get('/',(req,res)=>{
 app.post('/enroll',(req,res)=>{
     console.log(req.body);
     console.log('post request called');
-    res.status(200).send({"message":" message: data received"});
+    res.status(401).send({"message":"data received"});
 });
 
 app.listen(PORT,()=>{console.log("server running on localhost:"+PORT)});

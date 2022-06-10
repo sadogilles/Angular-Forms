@@ -16,6 +16,10 @@ export class AppComponent {
   
   topHasError=true;
 
+  submitted=false;
+
+  errorMessage = '';
+
   constructor(private  rService:EnrollementService){
     
   }
@@ -28,6 +32,16 @@ export class AppComponent {
   }
   onSubmit(){
     //console.log(this.userModel);
-    return  this.rService.enroll(this.userModel).subscribe((data)=>console.log(data));
+    this.submitted=true;
+    
+    return  this.rService.enroll(this.userModel) // new format for subscription
+   .subscribe(
+     {
+       next:x => console.log("the next value is",x),
+       error:err=>{this.errorMessage=err},
+       complete:()=>console.log("the call has completed")
+
+     }
+   )
   }
 }

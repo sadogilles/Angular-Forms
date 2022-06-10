@@ -20,8 +20,9 @@ export class EnrollementService {
 
     
    }
-
+ 
    errorHandler(error:HttpErrorResponse){
-     return throwError(()=>error.message);
+    
+    return throwError(()=>error.message);
    }
 }
