@@ -10,7 +10,12 @@ export class ReactiveFormComponent implements OnInit {
   registrationForm = new FormGroup({
     username:new FormControl('pablo'),
     password: new FormControl('******'),
-    confirmPassword: new FormControl('')
+    confirmPassword: new FormControl(''),
+    address: new FormGroup({
+        city: new FormControl('paris'),
+        state: new FormControl('ile de paris'),
+        postalCode:new FormControl('69000')
+    })
   });
   constructor() { }
 
