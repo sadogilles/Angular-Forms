@@ -30,8 +30,8 @@ export class AppComponent {
         this.topHasError=false;
       }
   }
-  onSubmit(){
-    //console.log(this.userModel);
+  onSubmit(userForm:any){
+    console.log(userForm);
     this.submitted=true;
     
     return  this.rService.enroll(this.userModel) // new format for subscription
@@ -40,7 +40,6 @@ export class AppComponent {
        next:x => console.log("the next value is",x),
        error:err=>{this.errorMessage=err},
        complete:()=>console.log("the call has completed")
-
      }
    )
   }

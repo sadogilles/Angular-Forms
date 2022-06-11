@@ -6,7 +6,7 @@
       {{errorMessage}}
     </div>
       
-      <form action="" #userForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="!submitted" novalidate>
+      <form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" *ngIf="!submitted" novalidate>
        <p>form data -> {{userForm.value | json}}</p>
         <hr/>
         <p>class model -> {{userModel|json }}</p>

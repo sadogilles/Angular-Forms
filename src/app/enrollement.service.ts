@@ -23,6 +23,6 @@ export class EnrollementService {
  
    errorHandler(error:HttpErrorResponse){
     
-    return throwError(()=>error.message);
+    return throwError(()=>{console.log(error.message); return error.message; });
    }
 }
