@@ -1,3 +1,4 @@
+import { compileDeclarePipeFromMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -17,9 +18,36 @@ export class ReactiveFormComponent implements OnInit {
         postalCode:new FormControl('69000')
     })
   });
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+  //set the different form values
+  loadApiData(){
+    //set value is very stricte on form value format. if a field is ommitted an error will be generated
+    // this.registrationForm.setValue({
+    //   username:'totot',
+    //   password:'****',
+    //   confirmPassword:'****',
+    //   address:{
+    //     city:'paris',
+    //     state:'test',
+    //     postalCode:'12345'
+    //   }
+    // })
+    //patchvalue help provide incomplete form values
+    this.registrationForm.patchValue({
+      username:'totot',
+      password:'****',
+      confirmPassword:'****'
+    })
+    
+  }
+
+  clearForm(){
+    this.registrationForm.patchValue({});
   }
 
   
