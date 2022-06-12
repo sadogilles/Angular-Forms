@@ -8,8 +8,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
+  
   registrationForm = new FormGroup({
-    username:new FormControl('pablo'),
+    username:new FormControl(''),
     password: new FormControl('******'),
     confirmPassword: new FormControl(''),
     address: new FormGroup({
@@ -46,8 +47,8 @@ export class ReactiveFormComponent implements OnInit {
     
   }
 
-  clearForm(){
-    this.registrationForm.patchValue({});
+  clearForm(fGroup:FormGroup){
+    fGroup.reset();
   }
 
   
