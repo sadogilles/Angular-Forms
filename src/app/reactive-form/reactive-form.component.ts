@@ -1,6 +1,6 @@
 import { compileDeclarePipeFromMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -9,19 +9,31 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit {
   
-  registrationForm = new FormGroup({
-    username:new FormControl(''),
-    password: new FormControl('******'),
-    confirmPassword: new FormControl(''),
-    address: new FormGroup({
-        city: new FormControl('paris'),
-        state: new FormControl('ile de paris'),
-        postalCode:new FormControl('69000')
+  constructor(private fb :FormBuilder) { }
+  // registrationForm = new FormGroup({
+  //   username:new FormControl(''),
+  //   password: new FormControl('******'),
+  //   confirmPassword: new FormControl(''),
+  //   address: new FormGroup({
+  //       city: new FormControl('paris'),
+  //       state: new FormControl('ile de paris'),
+  //       postalCode:new FormControl('69000')
+  //   })
+  // });
+
+  registrationForm = this.fb.group({
+    username:['pablo'],
+    password:[''],
+    confirmPassword:[''],
+    address:this.fb.group({
+      city:['paris'],
+      state:['ile de france'],
+      poastalCode:[''] 
     })
-  });
+  })
+  
 
 
-  constructor() { }
 
   ngOnInit(): void {
   }
